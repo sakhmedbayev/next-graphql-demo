@@ -14,7 +14,6 @@
   "dependencies": {
     "apollo-server-micro": "^2.19.1",
     "cross-env": "^7.0.3",
-    "dataloader": "^2.0.0",
     "knex": "^0.21.15",
     "next": "10.0.5",
     "react": "17.0.1",

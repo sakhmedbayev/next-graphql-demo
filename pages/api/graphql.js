@@ -1,6 +1,5 @@
 import { ApolloServer, gql } from "apollo-server-micro";
 import knex from "knex";
-import { blogPosts } from "..";
 
 const db = knex({
   client: "sqlite3",
@@ -8,6 +7,7 @@ const db = knex({
     filename: "./dev.sqlite3",
   },
   useNullAsDefault: true,
+  // debug: true,
 });
 
 const typeDefs = gql`
@@ -26,6 +26,7 @@ const typeDefs = gql`
   }
 
   type Query {
+    getPostById(id: ID!): Post!
     posts: [Post]
   }
 
@@ -37,12 +38,15 @@ const typeDefs = gql`
 
 const resolvers = {
   Post: {
-    comments: async (parent, args, _context) => {
-      return await db.select("*").from("comment").where({ postId: parent.id });
+    comments: async (post, args, { loader }) => {
+      return await db.select("*").from("comment").where({ postId: post.id });
     },
   },
 
   Query: {
+    getPostById: async (_parent, { id }, _context) => {
+      return await db.select("*").from("post").where({ id }).first();
+    },
     posts: async (_parent, args, _context) => {
       return await db.select("*").from("post");
     },
