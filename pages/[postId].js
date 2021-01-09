@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { blogPosts } from ".";
@@ -15,7 +16,13 @@ export default function PostDetails() {
 
   return (
     <Layout>
-      <h3>{currentPost.title}</h3>
+      <h3>
+        {currentPost.title}{" "}
+        <Link href={`/edit/${currentPost.id}`}>
+          <a style={{ fontWeight: "normal", color: "blue" }}>Edit</a>
+        </Link>
+      </h3>
+
       <p>{currentPost.text}</p>
       <div style={{ width: "100%" }}>
         {currentPost.comments.map((comment) => (
