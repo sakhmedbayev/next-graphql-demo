@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React from "react";
+import Link from "next/link";
 import styles from "../../styles/Post.module.css";
 
 export default function Layout({ children }) {
@@ -9,10 +10,16 @@ export default function Layout({ children }) {
         <title>Blog App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <header>
+        <nav>
+          <Link href="/">
+            <a>Posts</a>
+          </Link>
+        </nav>
+      </header>
 
       <main className={styles.main}>
         <h1 className={styles.title}>Welcome to My Blog</h1>
-
         <div className={styles.grid}>{children}</div>
       </main>
 
