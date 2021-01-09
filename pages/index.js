@@ -8,24 +8,92 @@ export const blogPosts = [
     title: "Blog Post 1",
     text:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nibh magna, viverra id felis et, efficitur tincidunt est. Nunc ultricies tellus eget metus ultrices mattis non eget odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam facilisis et nisl vel consequat. Nunc massa tortor, fringilla vitae orci vel, fringilla egestas ipsum. In sit amet euismod nisl. Sed ut rutrum dui.",
+    comments: [
+      {
+        id: 1,
+        author: "John Smith",
+        text: "some comment",
+      },
+      {
+        id: 2,
+        author: "John Smith",
+        text: "some comment",
+      },
+      {
+        id: 3,
+        author: "John Smith",
+        text: "some comment",
+      },
+    ],
   },
   {
     id: 2,
     title: "Blog Post 2",
     text:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nibh magna, viverra id felis et, efficitur tincidunt est. Nunc ultricies tellus eget metus ultrices mattis non eget odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam facilisis et nisl vel consequat. Nunc massa tortor, fringilla vitae orci vel, fringilla egestas ipsum. In sit amet euismod nisl. Sed ut rutrum dui.",
+    comments: [
+      {
+        id: 1,
+        author: "John Smith",
+        text: "some comment",
+      },
+      {
+        id: 2,
+        author: "John Smith",
+        text: "some comment",
+      },
+      {
+        id: 3,
+        author: "John Smith",
+        text: "some comment",
+      },
+    ],
   },
   {
     id: 3,
     title: "Blog Post 3",
     text:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nibh magna, viverra id felis et, efficitur tincidunt est. Nunc ultricies tellus eget metus ultrices mattis non eget odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam facilisis et nisl vel consequat. Nunc massa tortor, fringilla vitae orci vel, fringilla egestas ipsum. In sit amet euismod nisl. Sed ut rutrum dui.",
+    comments: [
+      {
+        id: 1,
+        author: "John Smith",
+        text: "some comment",
+      },
+      {
+        id: 2,
+        author: "John Smith",
+        text: "some comment",
+      },
+      {
+        id: 3,
+        author: "John Smith",
+        text: "some comment",
+      },
+    ],
   },
   {
     id: 4,
     title: "Blog Post 4",
     text:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nibh magna, viverra id felis et, efficitur tincidunt est. Nunc ultricies tellus eget metus ultrices mattis non eget odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam facilisis et nisl vel consequat. Nunc massa tortor, fringilla vitae orci vel, fringilla egestas ipsum. In sit amet euismod nisl. Sed ut rutrum dui.",
+    comments: [
+      {
+        id: 1,
+        author: "John Smith",
+        text: "some comment",
+      },
+      {
+        id: 2,
+        author: "John Smith",
+        text: "some comment",
+      },
+      {
+        id: 3,
+        author: "John Smith",
+        text: "some comment",
+      },
+    ],
   },
 ];
 
