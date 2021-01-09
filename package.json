@@ -2,15 +2,23 @@
   "name": "next-graphql-demo",
   "version": "0.1.0",
   "private": true,
+  "author": "Said Akhmedbayev",
+  "license": "MIT",
   "scripts": {
     "dev": "cross-env FAST_REFRESH=false next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "db:migrate": "yarn knex migrate:latest",
+    "db:rollback": "yarn knex migrate:rollback"
   },
   "dependencies": {
+    "apollo-server-micro": "^2.19.1",
+    "dataloader": "^2.0.0",
+    "knex": "^0.21.15",
     "next": "10.0.5",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "sqlite3": "^5.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
