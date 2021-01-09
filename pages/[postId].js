@@ -69,7 +69,7 @@ export default function PostDetails() {
 
         <p>{currentPost.text}</p>
         <div style={{ width: "100%" }}>
-          <AddNewComment post={currentPost} />
+          <AddNewComment postId={currentPost.id} />
         </div>
         <div style={{ width: "100%" }}>
           {currentPost.comments.map((comment) => (

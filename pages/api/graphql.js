@@ -39,7 +39,11 @@ const typeDefs = gql`
 const resolvers = {
   Post: {
     comments: async (post, args, { loader }) => {
-      return await db.select("*").from("comment").where({ postId: post.id });
+      return await db
+        .select("*")
+        .from("comment")
+        .where({ postId: post.id })
+        .orderBy("id", "desc");
     },
   },
 
