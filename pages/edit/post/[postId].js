@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Layout from "../../components/common/Layout";
-import useForm from "../../hooks/useForm";
+import Layout from "../../../components/common/Layout";
+import useForm from "../../../hooks/useForm";
 
 export default function PostEdit() {
   const [values, setValues] = useForm({
