@@ -12,7 +12,7 @@ exports.up = function (knex) {
         .unsigned()
         .references("id")
         .inTable("post")
-        .useNullAsDefault()
+        .notNullable()
         .onDelete("CASCADE");
       table.string("author", 255).notNullable();
       table.string("text").notNullable();
