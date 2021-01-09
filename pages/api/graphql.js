@@ -17,12 +17,20 @@ const typeDefs = gql`
     text: String!
   }
 
+  type Comment {
+    id: ID!
+    postId: String
+    author: String!
+    text: String!
+  }
+
   type Query {
     posts: [Post]
   }
 
   type Mutation {
     createPost(title: String!, text: String!): Post!
+    createComment(postId: ID!, author: String!, text: String!): Comment!
   }
 `;
 
@@ -49,6 +57,23 @@ const resolvers = {
         .first();
 
       return insertedPost;
+    },
+    createComment: async (_parent, { postId, author, text }, _context) => {
+      const [id] = await db
+        .insert({
+          postId,
+          author,
+          text,
+        })
+        .into("comment");
+
+      const insertedComment = await db
+        .select("*")
+        .from("comment")
+        .where({ id })
+        .first();
+
+      return insertedComment;
     },
   },
 };
