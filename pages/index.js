@@ -1,7 +1,9 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import Link from "next/link";
 
-const blogPosts = [
+import styles from "../styles/Post.module.css";
+
+export const blogPosts = [
   {
     id: 1,
     title: "Blog Post 1",
@@ -41,14 +43,12 @@ export default function Home() {
 
         <div className={styles.grid}>
           {blogPosts.map((post) => (
-            <a
-              key={post.id}
-              href="https://nextjs.org/docs"
-              className={styles.card}
-            >
-              <h3>{post.title}</h3>
-              <p>{post.text.split(" ").splice(0, 10).join(" ")}</p>
-            </a>
+            <Link key={post.id} href={`/${post.id}`}>
+              <a className={styles.card}>
+                <h3>{post.title}</h3>
+                <p>{post.text.split(" ").splice(0, 10).join(" ")}</p>
+              </a>
+            </Link>
           ))}
         </div>
       </main>
