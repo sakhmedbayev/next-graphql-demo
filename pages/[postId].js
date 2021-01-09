@@ -1,7 +1,7 @@
-import React from "react";
 import { useRouter } from "next/router";
+import React from "react";
 import { blogPosts } from ".";
-import styles from "../styles/Post.module.css";
+import Layout from "../components/common/Layout";
 
 export default function PostDetails() {
   const {
@@ -13,11 +13,9 @@ export default function PostDetails() {
   if (!currentPost) return <div>Loading...</div>;
 
   return (
-    <main className={styles.main}>
-      <div className={styles.grid}>
-        <h3>{currentPost.title}</h3>
-        <p>{currentPost.text}</p>
-      </div>
-    </main>
+    <Layout>
+      <h3>{currentPost.title}</h3>
+      <p>{currentPost.text}</p>
+    </Layout>
   );
 }
