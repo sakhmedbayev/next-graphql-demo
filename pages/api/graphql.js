@@ -15,6 +15,7 @@ const typeDefs = gql`
     id: ID!
     title: String!
     text: String!
+    comments: [Comment]
   }
 
   type Comment {
@@ -35,6 +36,12 @@ const typeDefs = gql`
 `;
 
 const resolvers = {
+  Post: {
+    comments: async (parent, args, _context) => {
+      return await db.select("*").from("comment").where({ postId: parent.id });
+    },
+  },
+
   Query: {
     posts: async (_parent, args, _context) => {
       return await db.select("*").from("post");
