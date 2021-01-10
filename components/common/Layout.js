@@ -13,7 +13,10 @@ export default function Layout({ children }) {
       <header>
         <nav>
           <Link href="/">
-            <a>Posts</a>
+            <a className="menu-item">Posts</a>
+          </Link>
+          <Link href="/edit/post/0">
+            <a className="menu-item">Add New Post</a>
           </Link>
         </nav>
       </header>

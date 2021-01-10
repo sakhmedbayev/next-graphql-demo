@@ -1,8 +1,37 @@
 import React, { useState } from "react";
 import Layout from "../../../components/common/Layout";
 import useForm from "../../../hooks/useForm";
+import { request, gql } from "graphql-request";
+import { useMutation, useQueryClient } from "react-query";
+
+const createPost = async ({ title, text }) => {
+  const query = gql`
+    mutation CreatePost($title: String!, $text: String!) {
+      createPost(title: $title, text: $text) {
+        id
+        title
+        text
+      }
+    }
+  `;
+
+  const variables = {
+    title,
+    text,
+  };
+
+  const data = await request(
+    "http://localhost:3000/api/graphql",
+    query,
+    variables
+  );
+
+  return data.createPost;
+};
 
 export default function PostEdit() {
+  const queryClient = useQueryClient();
+
   const [values, setValues] = useForm({
     title: "",
     text: "",
@@ -10,9 +39,17 @@ export default function PostEdit() {
 
   const [errors, setErrors] = useState({});
 
+  const createPostMutation = useMutation(createPost, {
+    onSuccess: () => {
+      queryClient.invalidateQueries(["getPosts"]);
+    },
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("FFF values", values);
+    createPostMutation.mutate({
+      ...values,
+    });
   };
 
   const validate = () => {
